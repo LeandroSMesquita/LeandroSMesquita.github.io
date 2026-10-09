@@ -55,9 +55,10 @@ figcaption{margin-top:10px;font-size:14px;line-height:1.4;color:var(--muted)}
 
 /* marcas */
 .marcas{background:var(--cream);padding:0}
-.marcas .wrap{padding-top:44px;padding-bottom:44px;display:flex;flex-direction:column;gap:16px}
-.row{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 36px}
-.row .label{font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);min-width:320px}
+.marcas .wrap{padding-top:44px;padding-bottom:44px;display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center}
+.row{display:flex;flex-direction:column;align-items:center;gap:8px}
+.row .label{font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.brands{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 30px}
 .row .b{font-family:var(--display);font-weight:600;font-size:15px}
 
 /* como */
@@ -95,7 +96,11 @@ figcaption{margin-top:10px;font-size:14px;line-height:1.4;color:var(--muted)}
 .tray .role{font-family:var(--display);font-weight:600;font-size:20px}
 
 /* contacto */
-.contacto{background:var(--ink);color:var(--cream)}
+.contacto{background:var(--ink);color:var(--cream);text-align:center}
+.contacto .eyebrow{justify-content:center}
+.contacto .lead{margin-left:auto;margin-right:auto}
+.contacto .actions{justify-content:center}
+.contacto h2{margin-left:auto;margin-right:auto}
 .contacto .eyebrow{color:var(--orange)}
 .contacto .eyebrow::before{display:none}
 .contacto h2{font-size:clamp(32px,5vw,44px);line-height:1.1;color:var(--cream)}
@@ -118,7 +123,6 @@ figcaption{margin-top:10px;font-size:14px;line-height:1.4;color:var(--muted)}
   .cards{grid-template-columns:1fr}
   .card{padding:24px}
   .steps{grid-template-columns:1fr}
-  .row .label{min-width:100%}
   .tray .item{grid-template-columns:1fr}
   .tray .item .place{grid-column:auto}
   nav ul{gap:2px 18px}

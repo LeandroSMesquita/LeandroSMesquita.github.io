@@ -132,3 +132,8 @@ figcaption{margin-top:10px;font-size:14px;line-height:1.4;color:var(--muted)}
   nav ul{gap:2px 18px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* idioma */
+nav li.lang{font-size:14px;font-weight:600;letter-spacing:.04em;color:var(--muted)}
+nav li.lang a{padding:6px 2px}
+nav li.lang a[aria-current]{color:var(--ink);text-decoration:underline;text-underline-offset:4px}

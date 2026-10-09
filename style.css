@@ -137,3 +137,14 @@ figcaption{margin-top:10px;font-size:14px;line-height:1.4;color:var(--muted)}
 nav li.lang{font-size:14px;font-weight:600;letter-spacing:.04em;color:var(--muted)}
 nav li.lang a{padding:6px 2px}
 nav li.lang a[aria-current]{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+
+/* carrusel del hero */
+.slides{display:grid}
+.slide{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity .9s ease,visibility 0s .9s}
+.slide.is-active{opacity:1;visibility:visible;transition:opacity .9s ease}
+.ctrl{display:flex;align-items:center;gap:2px;margin-top:6px}
+.ctrl .dot,.ctrl .pp{appearance:none;border:0;background:transparent;cursor:pointer;width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;padding:0;color:var(--ink)}
+.ctrl .dot::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--ink);opacity:.25;transition:opacity .2s,transform .2s}
+.ctrl .dot.is-active::before{opacity:1;transform:scale(1.2)}
+.ctrl .pp{margin-left:auto;font-size:10px}
+@media (prefers-reduced-motion:reduce){.slide,.slide.is-active{transition:none}}

@@ -49,9 +49,34 @@
         <a class="textlink" href="#contacto">Contacto</a>
       </div>
     </div>
-    <figure>
-      <img src="img/ourico.jpg" width="799" height="1200" alt="Erizo de mar con barba de gamba frita y huevo curado en algas, servido en un plato oscuro">
-      <figcaption>Erizo, barba de gamba frita y huevo curado en algas</figcaption>
+    <figure class="carousel" aria-roledescription="carousel" aria-label="Fotos de platos y del trabajo de Leandro" data-pause="Pausar" data-play="Reanudar">
+    <div class="slides">
+      <div class="slide is-active" role="group" aria-roledescription="slide" aria-label="1 / 6">
+        <img src="img/ourico.jpg" width="799" height="1200" alt="Erizo de mar con barba de gamba frita y huevo curado en algas, servido en un plato oscuro">
+        <figcaption>Erizo, barba de gamba frita y huevo curado en algas</figcaption>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 6">
+        <img src="img/cara.jpg" width="800" height="1000" alt="Leandro ofreciendo a la cámara una hoja de shiso con tartar de ternera y caviar negro" loading="lazy">
+
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 6">
+        <img src="img/lata.jpg" width="800" height="1000" alt="Tartar de pescado servido dentro de una lata de conserva abierta, con naranja y salicornia" loading="lazy">
+        <figcaption>Tartar de pescado servido en lata de conserva</figcaption>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 6">
+        <img src="img/maos.jpg" width="800" height="1000" alt="Manos con tatuajes presionando una masa enharinada" loading="lazy">
+        <figcaption>Manos en la masa</figcaption>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="5 / 6">
+        <img src="img/colher.jpg" width="800" height="1000" alt="Manos montando tartar de ternera sobre hojas de shiso y coronándolo con caviar negro" loading="lazy">
+
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="6 / 6">
+        <img src="img/veja.jpg" width="800" height="1000" alt="Leandro emplatando con concentración en un bol, en una cocina luminosa" loading="lazy">
+        <figcaption>Emplatando en el Festival Veja Rio</figcaption>
+      </div>
+    </div>
+    <div class="ctrl"><button type="button" class="dot is-active" aria-label="Ir a la foto 1" aria-current="true"></button><button type="button" class="dot" aria-label="Ir a la foto 2"></button><button type="button" class="dot" aria-label="Ir a la foto 3"></button><button type="button" class="dot" aria-label="Ir a la foto 4"></button><button type="button" class="dot" aria-label="Ir a la foto 5"></button><button type="button" class="dot" aria-label="Ir a la foto 6"></button><button type="button" class="pp" aria-label="Pausar"><span aria-hidden="true">❚❚</span></button></div>
     </figure>
   </div>
 </section>
@@ -197,6 +222,26 @@
       });
     });
   });
+})();
+
+(function(){
+  var c=document.querySelector('.carousel'); if(!c) return;
+  var sl=c.querySelectorAll('.slide'),dots=c.querySelectorAll('.dot'),pp=c.querySelector('.pp'),i=0,t=null,paused=false;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(n){
+    i=(n+sl.length)%sl.length;
+    sl.forEach(function(s,k){s.classList.toggle('is-active',k===i);s.setAttribute('aria-hidden',k===i?'false':'true');});
+    dots.forEach(function(d,k){d.classList.toggle('is-active',k===i);if(k===i)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current');});
+  }
+  function start(){stop();if(!paused&&!reduce)t=setInterval(function(){show(i+1);},4500);}
+  function stop(){if(t){clearInterval(t);t=null;}}
+  dots.forEach(function(d,k){d.addEventListener('click',function(){show(k);start();});});
+  function setPaused(p){paused=p;pp.firstChild.textContent=p?'▶':'❚❚';pp.setAttribute('aria-label',p?c.getAttribute('data-play'):c.getAttribute('data-pause'));p?stop():start();}
+  pp.addEventListener('click',function(){setPaused(!paused);});
+  c.addEventListener('mouseenter',stop);c.addEventListener('mouseleave',function(){if(!paused)start();});
+  c.addEventListener('focusin',stop);c.addEventListener('focusout',function(){if(!paused)start();});
+  if(reduce){paused=true;pp.firstChild.textContent='▶';pp.setAttribute('aria-label',c.getAttribute('data-play'));}
+  show(0);start();
 })();
 </script>
 </body>

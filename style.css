@@ -55,11 +55,12 @@ figcaption{margin-top:10px;font-size:14px;line-height:1.4;color:var(--muted)}
 
 /* marcas */
 .marcas{background:var(--cream);padding:0}
-.marcas .wrap{padding-top:44px;padding-bottom:44px;display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center}
-.row{display:flex;flex-direction:column;align-items:center;gap:8px}
-.row .label{font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.brands{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 30px}
-.row .b{font-family:var(--display);font-weight:600;font-size:15px}
+.marcas .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-direction:column;gap:10px}
+.line{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;font-size:15px}
+.line .label{font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.brands{display:flex;flex-wrap:wrap;align-items:center;gap:4px 0}
+.line .b{font-family:var(--display);font-weight:600;font-size:15px}
+.line .b + .b::before{content:"";display:inline-block;width:1px;height:14px;background:var(--ink);opacity:.35;margin:0 18px;vertical-align:middle}
 
 /* como */
 .steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px;margin-top:40px;padding:0;list-style:none}
@@ -118,6 +119,9 @@ figcaption{margin-top:10px;font-size:14px;line-height:1.4;color:var(--muted)}
   .tray .item .place{grid-column:2}
 }
 @media (max-width:640px){
+  .line{flex-direction:column;align-items:flex-start;gap:6px}
+  .brands{flex-direction:column;align-items:flex-start;gap:4px}
+  .line .b + .b::before{display:none}
   section{padding:56px 0}
   .wrap{padding:0 16px}
   .cards{grid-template-columns:1fr}

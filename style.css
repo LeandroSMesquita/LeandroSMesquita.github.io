@@ -55,11 +55,10 @@ figcaption{margin-top:10px;font-size:14px;line-height:1.4;color:var(--muted)}
 
 /* marcas */
 .marcas{background:var(--cream);padding:0}
-.marcas .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-direction:column;gap:16px}
+.marcas .wrap{padding-top:44px;padding-bottom:44px;display:flex;flex-direction:column;gap:16px}
 .row{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 36px}
-.row .label{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);min-width:270px}
-.row .b{font-family:var(--display);font-weight:600;font-size:20px}
-.row .note{font-size:14px;color:var(--muted)}
+.row .label{font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);min-width:320px}
+.row .b{font-family:var(--display);font-weight:600;font-size:15px}
 
 /* como */
 .steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px;margin-top:40px;padding:0;list-style:none}
